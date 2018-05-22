@@ -9,17 +9,17 @@ class SessionsController < ApplicationController
   if user && user.authenticate(user_params[:password])
     login(user)
    flash[:success] = "Welcome to the Rmit News!"
-   redirect_to login_path
+   redirect_to login_url
   else
    flash[:success] = "invalid username or password"
-    redirect_to login_path
+    redirect_to login_url
   end
   
   
   def logout
     flash[:success] = "You have logged out."
     session[:user_id] = nil
-    redirect_to login_path
+    redirect_to login_url
   end
   
  
